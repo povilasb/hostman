@@ -12,7 +12,9 @@ mod hostsfile;
 // mod nom_hosts;
 
 fn main() {
-    let args = Cli::from_args();
+    let mut args = Cli::from_args();
+
+    args.dry_run = true;
 
     match &args.cmd {
         CliCmd::Show { summary } => commands::show(*summary),
